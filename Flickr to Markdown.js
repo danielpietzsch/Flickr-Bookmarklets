@@ -2,17 +2,17 @@
 
 javascript:
 var url = document.URL;
-if (url.indexOf("flickr.com") >= 0) {
+if (url.indexOf('flickr.com') >= 0) {
   try {
     var imageId = url.match(/[0-9]{5,}/).pop();
     var div = document.getElementById('photoImgDiv' + imageId);
     var img = div.childNodes[1];
-    prompt("Copy this text:", "[![](" + img.src +")](" + url + ")");
+    prompt('Copy this text:', '[![](' + img.src +')](' + url + ')');
   }
   catch(error) {
-    alert("Sorry, it didn't work!\nYou must be on a page of a single image.");
+    alert('Sorry, it didn\'t work!\nYou must be on a page of a single image.');
   }
 }
 else {
-  alert("You are not on flickr.com!");
+  alert('You are not on flickr.com!');
 }
