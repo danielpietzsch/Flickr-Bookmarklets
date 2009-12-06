@@ -2,12 +2,18 @@
 
 javascript:
 var url = document.URL;
+var copyCommandString = "";
 if (url.indexOf('flickr.com') >= 0) {
   try {
     var imageId = url.match(/[0-9]{5,}/).pop();
     var div = document.getElementById('photoImgDiv' + imageId);
     var img = div.childNodes[1];
-    prompt('Copy this text:', '[URL=' + url + '][IMG]' + img.src + '[/IMG][/URL]');
+    if(navigator.appVersion.toLowerCase().indexOf('mac') != -1) {
+      copyCommandString = "(\u2318C)"
+    } else {
+      copyCommandString = "(Ctrl + C)"
+    }
+    prompt('Copy this text ' + copyCommandString, '[URL=' + url + '][IMG]' + img.src + '[/IMG][/URL]');
   }
   catch(error) {
     alert('Sorry, it didn\'t work!\nYou must be on a page of a single image.');
