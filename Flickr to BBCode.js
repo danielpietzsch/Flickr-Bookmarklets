@@ -6,8 +6,7 @@ var copyCommandString = "";
 if (url.indexOf('flickr.com') >= 0) {
   try {
     var imageId = url.match(/[0-9]{5,}/).pop();
-    var div = document.getElementById('photoImgDiv' + imageId);
-    var img = div.childNodes[1];
+    var img = document.getElementById('photo').getElementsByTagName('img')[0];
     if(navigator.appVersion.toLowerCase().indexOf('mac') != -1) {
       copyCommandString = "(\u2318C)"
     } else {
